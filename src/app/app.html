@@ -4,11 +4,71 @@
 <h2>{{age}}</h2>
 <h2>{{updateName()}}</h2>
 <h2>{{getCount(10,20)}}</h2> -->
+
+
 <!-- <h1>Component</h1>
 <app-profile></app-profile>
 <app-profile></app-profile> -->
-<h1>Event Binding</h1>
-<!-- <button (click)="callMe('minus')">click</button> -->
-<button (click)="counter('minus')">-</button>
+
+
+<!-- <h1>Event Binding</h1> -->
+<!-- <button (click)="counter('minus')"> - </button>
 <span>{{count}}</span>
-<button (click)="counter('plus')">+</button>
+<button (click)="counter('plus')"> + </button>
+<button (click)="showUserName()"> Show </button> -->
+
+<!-- <input type="text" (input)="handleEvent($event.type)">  <!--event.type==input/change/click-->
+<!-- <input type="text" (change)="handleEvent($event.type)">
+<button (click)="handleEvent($event.type)">Click</button> -->
+<!-- <select (change)="handleEvent($event.type)" name="" id=""> whenever you change option change will trigger 
+    <option value="">Car</option>
+    <option value="">Bike</option>
+    <option value="">Bus</option>
+</select>
+<input type="text" (blur)="handleEvent($event.type)">
+<input type="text" (focus)="handleEvent($event.type)">
+<div (mouseenter)="handleEvent($event.type)" class="div1"></div>
+<div (mouseleave)="handleEvent($event.type)" class="div2"></div>  -->
+
+<!-- <h1>Data Type</h1>
+<h1>{{data}}</h1>
+<button (click)="updateData(60)">Click to Update Data</button>
+<button (click)="HandleEvent($event)">Click Here</button>
+<input type="text" (change)="HandleEvent($event)">
+<div (mouseenter)="HandleEvent($event)">
+    <h1>Test Event</h1>
+</div> -->
+
+<!-- Property Binding-->
+ <!-- <h1>Property Binding</h1>
+ <button disabled="{{btnDisabled}}">Click</button>
+ <button [disabled]="btnDisabled">Click</button>
+
+ <input type="text" readonly="{{inputReadOnly}}">
+ <input type="text" [readOnly]="inputReadOnly">
+
+ <img src="{{url}}" alt="">
+ <img [src]="url" alt="">
+
+ <button (click)="toggle()">click to toggle</button> -->
+
+ <!-- <h1>Signals</h1>
+ <button (click)="UpdateData()"> Update Data </button>
+ <h1>{{Data}}</h1>
+ <button (click)="UpdateCount()"> Update Count </button>
+ <h1>{{Count()}}</h1> -->
+
+ <!-- <h1>Computed Signals</h1>
+ <h1>Height: {{height()}}</h1>
+ <h1>Area: {{area()}}</h1>
+ <button (click)="updateHeight()">Update Height</button> -->
+
+ <!-- <h1>Effects</h1>
+ <h2 [style.color]="color">{{speed()}}</h2>
+ <button (click)="increaseSpeed()"> Increase Speed </button>
+ <hr/>
+ <h2>{{fruit()}}</h2>
+ <button (click)="changeFruit()"> Change Fruit </button> -->
+
+ <h1>Signals Data Type</h1>
+ <button (click)="handleData()">Show Updated Users</button>
