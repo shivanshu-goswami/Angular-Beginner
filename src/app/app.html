@@ -17,7 +17,7 @@
 <button (click)="counter('plus')"> + </button>
 <button (click)="showUserName()"> Show </button> -->
 
-<!-- <input type="text" (input)="handleEvent($event.type)">  <!--event.type==input/change/click-->
+<!-- <input type="text" (input)="handleEvent($event.type)">  event.type==input/change/click-->
 <!-- <input type="text" (change)="handleEvent($event.type)">
 <button (click)="handleEvent($event.type)">Click</button> -->
 <!-- <select (change)="handleEvent($event.type)" name="" id=""> whenever you change option change will trigger 
@@ -70,5 +70,115 @@
  <h2>{{fruit()}}</h2>
  <button (click)="changeFruit()"> Change Fruit </button> -->
 
- <h1>Signals Data Type</h1>
- <button (click)="handleData()">Show Updated Users</button>
+ <!-- <h1>Signals Data Type</h1>
+ <button (click)="handleData()">Show Updated Users</button> -->
+
+ <!-- <p>Value : {{name()}}</p>
+ <input type="text" [value]="name()" (input)="setValue($event.target.value)">
+ <button (click)="resetValue()"> Reset Button </button> -->
+
+ <!-- <h1>Control Flow Statement</h1>
+ <div>
+    @if (isLogin()) {
+        <span>Welcome User</span>
+        <button (click)="handleLogin(false)">Logout</button>
+    }@else {
+        <span>Please Login</span>
+        <button (click)="handleLogin(true)">Login</button>
+    }
+ </div>
+ <hr/>
+ <h1>Toggle</h1>
+ @if(show()){
+    <button (click)="show.set(false)">Hide</button>
+ }@else {
+    <button (click)="show.set(true)">Show</button>
+ }
+ <hr/>
+ <h1>Check Status</h1>
+ <select name="" (change)="handleStatus($event)" id="">
+    <option value="notStarted">Not Started</option>
+    <option value="progress">In Progress</option>
+    <option value="success">Success</option>
+    <option value="error">Error</option>
+ </select>
+ <br>
+ @if(status()=='notStarted'){
+    <span>No Status</span>
+ }@else if (status()=='progress') {
+    <span>In Progress</span>
+ }@else if (status()=='success') {
+    <span>Success</span>
+ }@else {
+    <span>Error</span>
+ } -->
+
+<!-- <h1>for | Control Flow Statement</h1>
+<div>
+    <ul>
+         //we need unique identifier for track , since we have unique name so it will work otherwise use some id
+        //also
+    @for (user of Users(); track user) {
+        <li>{{user}}</li>
+    }
+    </ul>
+    <hr/>
+    <ul>
+        @for(user of UsersDetail();track user.id){
+           //  $_name_ are contextual variables to get additional information
+            <li [style.backgroundColor="$even?'#ccc':'#fff'"]>
+                <span>{{$index+1}} {{user.name + " "+ user.surname}}
+                    @if($first){
+                        <span style="color:red">Admin</span>
+            }
+                     @if ($last) {
+                         <span style="color:orange">Guest</span>
+            }
+            </span>
+            <span>@if($count==$index+1){<span><b>Total Users:</b>{{$count}}</span>}</span>
+        </li>
+        }
+    </ul>
+</div> -->
+
+<!-- <h1>Switch</h1>
+<select (change)="HandleStatus($event)" name="" id="" >
+    <option value="notStarted">Not Started Yet</option>
+    <option value="loading">Loading in Progress</option>
+    <option value="success">Success</option>
+    <option value="error">Error</option>
+</select>
+<br/>
+@switch (Status()) {
+    @case ('notStarted') {
+        <span>no update</span>
+    }
+    @case ('loading') {
+        <span>Still Loading</span>
+    }
+    @case ('success') {
+        <span>Success</span>
+    }
+    @default {
+        <span>Error</span>
+    }
+} -->
+<!-- <h1>{{Name()}}</h1>
+<input type="text" [value]="Name()" (input)="Name.set($event.target.value)">
+ <hr>
+ <h1>{{age}}</h1>
+ <input type="text" [(ngModel)]="age">
+<input type="text" [ngModel]="age" (ngModelChange)="age=$event">
+<hr>
+<h1>{{UserData().age}}</h1>
+<input type="text" [value]="UserData().age" (input)="UpdateUserData('age',$event.target.value)">
+
+<hr>
+<h1>{{UserData().email}}</h1>
+<input type="text" [value]="UserData().email" (input)="UpdateUserData('email',$event.target.value)"> -->
+
+<h1>{{uName}}</h1>
+<input type="text"[(ngModel)]="uName">
+
+<h1>{{userCollege}}</h1>
+<input type="text"[(ngModel)]="userCollege">

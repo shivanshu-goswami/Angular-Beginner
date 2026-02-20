@@ -2,14 +2,16 @@ import { Component, computed, effect, Signal, signal, WritableSignal } from '@an
 import { RouterOutlet } from '@angular/router';
 import { Profile } from './profile/profile';
 import { computeMsgId } from '@angular/compiler';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Profile],
+  imports: [RouterOutlet,Profile,FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
+
   // protected readonly title = signal('angular-beginner');
   // name="shivanshu"
   // age=20
@@ -134,6 +136,63 @@ export class App {
     this.users.update((item)=>[...item,'bruce']);
     console.log(this.users())
   }
+  name:WritableSignal<string>=signal<string>('')
+  resetValue(){
+    this.name.set("Anil Sidhu")
+  }
+  setValue(val:string){
+    this.name.set(val);
+  }
+  
+  isLogin=signal(false)
+  show=signal(true)
+  status=signal('error')
+  handleLogin(value:boolean){
+    this.isLogin.set(value)
+  }
+  handleStatus(event:Event){
+    let target=event.target as HTMLSelectElement
+    this.status.set(target.value); //this target.value comes from options value property
+  }
 
+  Users=signal(["Anil","Sam","Peter","Bruce"]);
+  UsersDetail=signal([
+    {id:1,name:"Anil",surname:"sidhu",email:"anil@test.com"},
+    {id:2,name:"Sam",surname:"singh",email:"sam@test.com"},
+    {id:3,name:"Peter",surname:"parker",email:"peter@test.com"},
+    {id:4,name:"Bruce",surname:"wayen",email:"bruce@test.com"}
+  ])
 
+  Status=signal("loading")
+  HandleStatus(event:Event){
+    const target=event.target as HTMLSelectElement
+    this.Status.set(target.value)
+  }
+  Name=signal('shivanshu')
+  age=20
+  UserData=signal({
+    name:"shivanshu",
+    age:22,
+    email:"shivanshu@test.com"
+  })
+  UpdateUserData(key:string,val:string){
+    this.UserData.update((item)=>({...item,[key]:val}))
+  }
+  userName=signal("shivanshu")
+  userData=signal({
+    college:"DTU",
+    email:"example@test"
+  })
+  get uName(){
+    return this.userName();
+  }
+  set uName(val:string){
+    this.userName.set(val)
+  }
+  get userCollege(){
+    return this.userData().college
+  }
+  set userCollege(val:string){
+    this.userData.update((item)=>({...item,college:val}))
+  }
 }
