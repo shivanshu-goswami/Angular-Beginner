@@ -3,10 +3,13 @@ import { RouterOutlet } from '@angular/router';
 import { Profile } from './profile/profile';
 import { computeMsgId } from '@angular/compiler';
 import { FormsModule } from '@angular/forms';
+import { Child } from './child/child';
+import { DisplayCount } from './display-count/display-count';
+import { ControlCount } from './control-count/control-count';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Profile,FormsModule],
+  imports: [RouterOutlet,Profile,FormsModule,Child,DisplayCount,ControlCount],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -195,4 +198,12 @@ export class App {
   set userCollege(val:string){
     this.userData.update((item)=>({...item,college:val}))
   }
+
+  username=signal('shivanshu')
+  userArray=signal(["shivanshu","loknath","sarthak","vansh"])
+  messageFromChild=signal('')
+  onchildEvent(msg:string){
+    this.messageFromChild.set
+  }
+
 }

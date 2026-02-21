@@ -177,8 +177,22 @@
 <h1>{{UserData().email}}</h1>
 <input type="text" [value]="UserData().email" (input)="UpdateUserData('email',$event.target.value)"> -->
 
-<h1>{{uName}}</h1>
+<!-- <h1>{{uName}}</h1>
 <input type="text"[(ngModel)]="uName">
 
 <h1>{{userCollege}}</h1>
-<input type="text"[(ngModel)]="userCollege">
+<input type="text"[(ngModel)]="userCollege"> -->
+
+<!-- <app-child [name]="username()"></app-child> this is how it is passed to child component, recieve it in ts file of child by @Input
+@for(user of userArray();track user){
+    <app-child [name]="user"></app-child>
+} -->
+
+<!-- <h1>child to parent</h1>
+<h1>Message From Child{{messageFromChild()}}</h1>
+<app-child (messageEvent)="onchildEvent($event)"> </app-child> -->
+
+<h1>Global State With Signals</h1>
+<app-display-count></app-display-count>
+<hr/>
+<app-control-count></app-control-count>
